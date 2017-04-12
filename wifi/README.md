@@ -131,11 +131,13 @@ mac address is f0b42905b742
 
 产品Profile，即为对产品功能抽象化，将**属性、方法、事件**三部分功能以接口实现方式进行描述。  
 
-请参考示例 [空气净化器举例](../md_images/设备profile模板-空气净化器举例.pdf)
+**请参考示例 [空气净化器举例](../md_images/设备profile模板-空气净化器举例.pdf)**
+
+可以按照示例文档对你的产品功能进行梳理。
 
 #### 关于[JSON RPC](http://json-rpc.org/wiki/specification)
 
-当远程调用、插件调用时，功能将以JSON字符串的形式出现。相关调用规范和返回值请参考：[指令调用规范.pdf](http://orig.static.home.mi.com/docs/%E6%8C%87%E4%BB%A4%E8%B0%83%E7%94%A8%E8%A7%84%E8%8C%83.pdf)  
+当通过云端与设备通信进行调试时，指令将以JSON字符串的形式出现。相关调用规范和返回值请参考：[指令调用规范.pdf](http://orig.static.home.mi.com/docs/%E6%8C%87%E4%BB%A4%E8%B0%83%E7%94%A8%E8%A7%84%E8%8C%83.pdf)  
 
 变量，函数的命令风格遵循[GNU-C](https://www.gnu.org/prep/standards/)风格，小写字母，下划线分隔就可以了。（天呐不要驼峰式...）
 
@@ -312,24 +314,6 @@ MIIO芯片提供一套可读的串口文本命令，供外部芯片调用，一�
 ↓2
 ```
 
-#### net
-
-- 参数：无
-
-- 返回：unprov 或 offline 或 local 或 cloud 或 updating 或 uap
-
-- 说明：询问网络状态。返回值分别代表：未配置、连接中（或掉线）、连上路由器但未连上服务器、连上小米云服务器、固件升级中、uap模式等待连接
-
-- 举例：
-```
-↑net 
-↓offline 
-↑net 
-↓local 
-↑net 
-↓cloud
-```
-
 #### reboot
 
 - 参数：无
@@ -371,6 +355,8 @@ MIIO芯片提供一套可读的串口文本命令，供外部芯片调用，一�
 ↑factory 
 ↓ok
 ```
+
+**以上为模组工作必需指令，需要开发者在固件中进行实现。**  
 
 #### 更多串口命令介绍见[串口命令](../md_images/new/MIIO芯片串口命令详情.pdf)
 
